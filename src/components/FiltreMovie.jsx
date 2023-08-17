@@ -1,4 +1,5 @@
 import React from 'react'
+import StarRating from './StarRating'
 
 const FiltreMovie = ({textS,ratingS,handleSearch,handleRating}) => {
   return (
@@ -7,8 +8,7 @@ const FiltreMovie = ({textS,ratingS,handleSearch,handleRating}) => {
         <form className='form'>
             <label>Title</label>
             <input type="text" value={textS} onChange={e=>handleSearch(e.target.value)}/>
-            <label>Rating</label>
-            <input type="text" value={ratingS} onChange={e=>handleRating(e.target.value)}/>
+            <StarRating  rating={ratingS} handleRating={handleRating}/>
         </form>
     </div>
   )

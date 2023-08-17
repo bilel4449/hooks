@@ -1,4 +1,5 @@
 import React from 'react'
+import StarRating from './StarRating'
 
 const MovieCard = ({movie}) => {
   return (
@@ -6,7 +7,7 @@ const MovieCard = ({movie}) => {
      <h3>{movie.title}</h3>
      <img src={movie.url} alt={movie.url}/>
      <p>{movie.description}</p>
-     <p>{movie.rating}</p>
+     <StarRating rating={movie.rating} />      
     </div>
   )
 }

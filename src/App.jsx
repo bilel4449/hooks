@@ -17,10 +17,11 @@ const [ratingS,setRatingS] = useState("")
 const handleSearch=(x)=>setTextS(x)
 // fonction rating
 const handleRating=(x)=>setRatingS(x)
+
   return (
     <div className='app'>
       <FiltreMovie textS={textS} ratingS={ratingS} handleSearch={handleSearch} handleRating={handleRating}/>
-      <MovieList list={data.filter(el=>el.title.toLowerCase().includes(textS.toLowerCase()))}/>
+      <MovieList list={data.filter(el=>el.title.toLowerCase().includes(textS.toLowerCase())&&el.rating>=ratingS)}/>
       <MovieAdd handleAdd={handleAdd}/>
 
     </div>
