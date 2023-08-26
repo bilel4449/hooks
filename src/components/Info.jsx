@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const info = ({list}) => {
     const {id}=useParams()
@@ -9,6 +9,9 @@ const info = ({list}) => {
         <h1>{item.title}</h1>
         <video src={item.bonde}></video>
         <p>{item.description}</p>
+        <Link to={`/movielist`}>
+        <button>Retour</button>
+        </Link>
 
     </div>
   )

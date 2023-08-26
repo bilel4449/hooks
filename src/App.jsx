@@ -61,7 +61,7 @@ const handleRating=(x)=>setRatingS(x)
       <Router>
         <Routes>
           <Route path="/info/:id" element={<Info/>}/>
-
+          <Route path="/movielist" element={<MovieList/>}/>
         
         </Routes>
       </Router>

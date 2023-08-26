@@ -1,8 +1,8 @@
 import React from 'react'
 import StarRating from './StarRating'
-import { Link } from 'react-router-dom'
 import Info from './info'
 import MovieAdd from './MovieAdd'
+import { Link } from 'react-router-dom'
 const MovieCard = ({movie}) => {
   return (
     <div className='movie-card'>
@@ -10,11 +10,11 @@ const MovieCard = ({movie}) => {
      <img src={movie.url} alt={movie.url}/>
      <p>{movie.description}</p>
      <StarRating rating={movie.rating} /> 
-    <Link to={`/info/${movie.id}`}>
-      
-    <button>Info</button>
     
-    </Link>
+      <Link to={`/info/${movie.id}`}>        
+    <button>Info</button>
+    </Link> 
+    
     </div>
 
   )
