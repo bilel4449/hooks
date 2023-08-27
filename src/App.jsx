@@ -5,7 +5,9 @@ import MovieList from './components/MovieList'
 import MovieAdd from './components/MovieAdd'
 import FiltreMovie from './components/FiltreMovie'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { Info } from '@mui/icons-material'
+
+import MovieCard from './components/MovieCard'
+import Info from './components/info'
 
 
 function App() {
@@ -15,7 +17,7 @@ function App() {
       description:'film graphique',
       url:'https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_.jpg',
       rating:'5',
-      bonde:'https://youtu.be/O1CzgULNRGs?si=jRrRPVEGfVHUxZ6u',
+      bonde:'https://www.youtube.com/embed/O1CzgULNRGs?si=UwcExFhnlUGZFJ08" title="YouTube video player',
     },
 
     {id:'2',
@@ -23,21 +25,21 @@ function App() {
       description:'film action',
       url:'https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg',
       rating:'5',
-      bonde:'https://youtu.be/8xx91zoASLY?si=_Sgn7i5He7of8QG9'
+      bonde:'https://www.youtube.com/embed/8xx91zoASLY?si=WzqUyKQdzGfzqAiP" title="YouTube video player'
     },
     {id:'3',
       title:'Pathaan',
       description:'film action',
       url:'https://fr.web.img4.acsta.net/c_310_420/pictures/22/12/23/10/56/5401538.jpg',
       rating:'4',
-      bonde:'https://youtu.be/vqu4z34wENw?si=D0lhlvE3Ynvw2nOT'
+      bonde:'https://www.youtube.com/embed/vqu4z34wENw?si=ljyP_nZ716Eh-VZX'
     },
     {id:'4',
       title:'The Last Deal',
       description:'film action',
       url:'https://www.naijaprey.com/wp-content/uploads/2023/06/The-Last-Deal.webp',
       rating:'3',
-      bonde:'https://youtu.be/xddoAQ8eqLU?si=x2Gs2L10F0m2usch'
+      bonde:'https://www.youtube.com/embed/K9XAVk7OJsE?si=6e0r9FawJi_K1qoc'
     },
 
 
@@ -56,12 +58,14 @@ const handleRating=(x)=>setRatingS(x)
   return (
     <div className='app'>
       <FiltreMovie textS={textS} ratingS={ratingS} handleSearch={handleSearch} handleRating={handleRating}/>
-      <MovieList list={data.filter(el=>el.title.toLowerCase().includes(textS.toLowerCase())&&el.rating>=ratingS)}/>
       <MovieAdd handleAdd={handleAdd}/>
       <Router>
         <Routes>
-          <Route path="/info/:id" element={<Info/>}/>
-          <Route path="/movielist" element={<MovieList/>}/>
+          <Route path="/info/:id" element={<Info list={data}/>}/>
+          <Route path="/" element={
+      <MovieList list={data.filter(el=>el.title.toLowerCase().includes(textS.toLowerCase())&&el.rating>=ratingS)}/>
+
+          }/>
         
         </Routes>
       </Router>

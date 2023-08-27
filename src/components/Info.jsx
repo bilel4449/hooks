@@ -1,20 +1,23 @@
-import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import React from "react";
+import { Link, useParams } from "react-router-dom";
 
-const info = ({list}) => {
-    const {id}=useParams()
-    const item=list.find(el=>el.id==id)
-    return (
+const Info = ({ list }) => {
+  const { id } = useParams();
+  const item = list.find((el) => el.id == id);
+
+  return (
     <div>
-        <h1>{item.title}</h1>
-        <video src={item.bonde}></video>
-        <p>{item.description}</p>
-        <Link to={`/movielist`}>
+      <h1>{item.title}</h1>
+      <img className="info" src={item.url} alt="" />
+
+      <iframe className="bonde" src={item.bonde}
+      ></iframe>
+      <h3>{item.description}</h3>
+      <Link to="/">
         <button>Retour</button>
-        </Link>
-
+      </Link>
     </div>
-  )
-}
+  );
+};
 
-export default info
+export default Info;
